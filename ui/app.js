@@ -78,9 +78,7 @@ function getFormattedDate(date, prefomattedDate = false, hideYear = false) {
 }
 
 var quotes = [
-  'Project Sloth On Top!',
-  'A Discord rewrite fixes everything.',
-  'Does anyone even read these?',
+  'Welcome to the GNR PNC',
 ]
 
 function randomizeQuote() {
@@ -669,7 +667,7 @@ $(document).ready(() => {
     ".manage-incidents-create",
     function () {
       let tempalte =
-        "📝 Summary:\n\n[Insert Report Summary Here]\n\n🧍 Hostage: [Name Here]\n\n🔪 Weapons/Items Confiscated:\n\n· [Insert List Here]\n\n-----\n💸 Fine:\n⌚ Sentence:\n-----";
+        "Summary:\n\n[Insert Report Summary Here]";
       $("#manage-incidents-title-input").val(
         "Name - Charge - " + $(".date").html()
       );
@@ -3749,7 +3747,7 @@ $(document).ready(() => {
       if (PoliceJobs[sentJob] !== undefined) {
         document.documentElement.style.setProperty(
           "--color-1",
-          "#1E3955"
+          "#1c4cac"
         );
         document.documentElement.style.setProperty(
           "--color-2",
@@ -3785,7 +3783,7 @@ $(document).ready(() => {
         );
         document.documentElement.style.setProperty(
           "--color-10",
-          "#8f741b"
+          "#ffffff"
         );
         $(".badge-logo").attr("src", "img/sasp_badge.webp");
         $(".header-title").html("SAN ANDREAS STATE POLICE");
@@ -3847,7 +3845,7 @@ $(document).ready(() => {
         $("#home-reports-container").fadeIn(0);
         document.documentElement.style.setProperty(
           "--color-1",
-          "#5F2121"
+          "#005eb8"
         );
         document.documentElement.style.setProperty(
           "--color-2",
@@ -3855,15 +3853,15 @@ $(document).ready(() => {
         );
         document.documentElement.style.setProperty(
           "--color-3",
-          "#4A1C1C"
+          "#161616"
         );
         document.documentElement.style.setProperty(
           "--color-4",
-          "#5E2323"
+          "#161616"
         );
         document.documentElement.style.setProperty(
           "--color-5",
-          "#381515"
+          "#161616"
         );
         document.documentElement.style.setProperty(
           "--color-6",
@@ -3871,11 +3869,11 @@ $(document).ready(() => {
         );
         document.documentElement.style.setProperty(
           "--color-7",
-          "#521C1C"
+          "#161616"
         );
         document.documentElement.style.setProperty(
           "--color-8",
-          "#CC2525"
+          "#3a84ca"
         );
         document.documentElement.style.setProperty(
           "--color-9",
@@ -3942,7 +3940,7 @@ $(document).ready(() => {
       } else if (DojJobs[sentJob] !== undefined) {
         document.documentElement.style.setProperty(
           "--color-1",
-          "#553a1e"
+          "#cccccc"
         );
         document.documentElement.style.setProperty(
           "--color-2",
@@ -3950,15 +3948,15 @@ $(document).ready(() => {
         );
         document.documentElement.style.setProperty(
           "--color-3",
-          "#7b552c"
+          "#525252"
         );
         document.documentElement.style.setProperty(
           "--color-4",
-          "#5e4123"
+          "#525252"
         );
         document.documentElement.style.setProperty(
           "--color-5",
-          "#382815"
+          "#525252"
         );
         document.documentElement.style.setProperty(
           "--color-6",
@@ -4102,15 +4100,15 @@ $(document).ready(() => {
         let activeInfoJob = `<div class="unit-job active-info-job-unk">UNKNOWN</div>`;
         if (PoliceJobs[unit.unitType] !== undefined) {
           policeCount++;
-          activeInfoJob = `<div class="unit-job active-info-job-lspd">LSPD</div>`;
+          activeInfoJob = `<div class="unit-job active-info-job-police">Met Police</div>`;
         } else if (AmbulanceJobs[unit.unitType] !== undefined) {
-          activeInfoJob = `<div class="unit-job active-info-job-ambulance">Ambulance</div>`
+          activeInfoJob = `<div class="unit-job active-info-job-ambulance">NHS</div>`
           emsCount++;
         /* } else if  (DojJobs[unit.unitType] !== undefined) {
           activeInfoJob = `<div class="unit-job active-info-job-fire">FIRE</div>`
           fireCount++; */
         } else if (DojJobs[unit.unitType] !== undefined) {
-          activeInfoJob = `<div class="unit-job active-info-job-doj">DOJ</div>`
+          activeInfoJob = `<div class="unit-job active-info-job-doj">MOJ</div>`
           dojCount++;
         }
 
@@ -4286,6 +4284,7 @@ $(document).ready(() => {
         $(".dispatch-items")[0].scrollHeight
       );
     } else if (eventData.type == "call") {
+      ClearMap();
       const value = eventData.data;
       DispatchMAP(value);
       if (value && value.job.includes(playerJob)) {
